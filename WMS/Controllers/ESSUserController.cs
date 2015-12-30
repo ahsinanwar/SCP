@@ -82,7 +82,10 @@ namespace WMS.Controllers
                 {
                     UserName = emp.EmpNo,
                     Password = "Password",
-                    EmpID = EmpID
+                    EmpID = EmpID,
+                    UserRoleD= "E",
+                    CanView = true,
+                    CanAdd = true
                 };
                 db.Users.Add(user);
             }
