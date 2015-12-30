@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 using WMS.HelperClass;
+
 using WMS.Models;
 
 namespace WMS.Controllers
@@ -11,7 +13,7 @@ namespace WMS.Controllers
     public class LeaveApprovalController : Controller
     {
         private TAS2013Entities db = new TAS2013Entities();
-       
+
         // GET: /LeaveApproval/ ----- returns the Leave View
         public ActionResult Index()
         {
@@ -21,7 +23,9 @@ namespace WMS.Controllers
         // GET: /LeaveApproval/PendingLeavesList -- Returns list of emps acc to the user info
         public JsonResult PendingLeavesList()
         {
+
             var collection = db.LvApplications.Where(lv => lv.Stage == 1 && lv.IsRevoked == false)
+
                 .Select(x => new
             {
                 LvID = x.LvID,
@@ -79,7 +83,9 @@ namespace WMS.Controllers
 
         private string ManageSingleLeaveInDB(int LvID, Boolean status)
         {
+
             User LoggedInUser = Session["LoggedUser"] as User;
+
             
             LvApplication leave = db.LvApplications.First(ep => ep.LvID == LvID);
             if (status)
@@ -87,21 +93,26 @@ namespace WMS.Controllers
                 leave.Active = status;
                 //TODO : call leave controller functions to create leave data
                 leave.Stage = 2;
+
                 leave.Active = true;
                 leave.IsRevoked = false;
                 leave.ApprovedBy = LoggedInUser.EmpID;
                 ProcessLeave(leave);
+
             }
             else
             {
                 leave.IsRevoked = true;
+
                 leave.Active = false;
+
                 leave.Stage = 2;
             }
             if (db.SaveChanges() > 0)
                 return "success";
             else
                 return "error";
+
         }
 
         private void ProcessLeave(LvApplication lvapplication)
@@ -134,6 +145,7 @@ namespace WMS.Controllers
             
             }
             
+
         }            
 	}
 }

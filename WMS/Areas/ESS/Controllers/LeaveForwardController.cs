@@ -21,8 +21,10 @@ namespace WMS.Areas.ESS.Controllers
         // GET: /LeaveForward/PendingLeavesList -- Returns list of emps acc to the user info
         public JsonResult PendingLeavesList()
         {
+
             User LoggedInUser = Session["LoggedUser"] as User;
             var collection = db.LvApplications.Where(lv => lv.Stage < 1 && lv.ManagerID == LoggedInUser.EmpID)
+
                 .Select(x => new
                 {
                     LvID = x.LvID,
@@ -82,6 +84,7 @@ namespace WMS.Areas.ESS.Controllers
 
             LvApplication leave = db.LvApplications.First(ep => ep.LvID == LvID);
             if (status)
+
             {
                 leave.Stage = 1;
                 leave.Active = false;

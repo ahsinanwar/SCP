@@ -46,7 +46,8 @@
                             <td><input type="checkbox" data-ng-model="leave.isSelected"/></td>
                             <td>{{leave.FromDate.slice(6, -2) | date: 'dd-MM-yyyy' }} - {{leave.ToDate.slice(6, -2) | date: 'dd-MM-yyyy' }}</td>
                             <td>{{leave.EmpNo}}</td>
-                            <td>{{leave.Manager}}</td>
+                           <td>{{leave.Manager}}</td>
+
                             <td>{{leave.EmpName}}</td>
                             <td>{{leave.Reason}}</td>
                             <td><button class="btn btn-sm btn-success" data-ng-click="approveLeave(leave)">Approve Leave</button>

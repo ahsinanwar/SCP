@@ -20,8 +20,10 @@ namespace WMS.Areas.ESS.Controllers
         // GET: /ESS/ESSLeave/
         public ActionResult Index()
         {
+
             User LoggedInUser = Session["LoggedUser"] as User;
             var lvapplications = db.LvApplications.Include(l => l.Emp).Include(l => l.User).Include(l => l.LvType1).Where(aa=>aa.EmpID==LoggedInUser.EmpID);
+
             return View(lvapplications.ToList());
         }
 
@@ -85,12 +87,16 @@ namespace WMS.Areas.ESS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CustomActionAttribute]
+
         public ActionResult Create([Bind(Include = "LvID,LvDate,LvType,EmpID,ManagerID,FromDate,ToDate,NoOfDays,IsHalf,FirstHalf,HalfAbsent,LvReason,LvAddress,CreatedBy,ApprovedBy,Status")] LvApplication lvapplication)
+
         {
             User LoggedInUser = Session["LoggedUser"] as User;
             if (lvapplication.FromDate.Date > lvapplication.ToDate.Date)
                 ModelState.AddModelError("FromDate", "From Date should be smaller than To Date");
+
             string _EmpNo = db.Emps.Where(aa => aa.EmpID == LoggedInUser.EmpID).FirstOrDefault().EmpNo.ToString();
+
             List<Emp> _emp = db.Emps.Where(aa => aa.EmpNo == _EmpNo).ToList();
             if (_emp.Count == 0)
             {
@@ -120,7 +126,9 @@ namespace WMS.Areas.ESS.Controllers
                                 int _userID = Convert.ToInt32(Session["LogedUserID"].ToString());
                                 lvapplication.CreatedBy = _userID;
                                 lvapplication.Active = true;
+
                                 lvapplication.Stage = 0;
+
                                 db.LvApplications.Add(lvapplication);
                                 if (db.SaveChanges() > 0)
                                 {
