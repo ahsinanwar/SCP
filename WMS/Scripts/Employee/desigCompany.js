@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
     $('#DesigID').empty();
-    // var URL = '/WMS/Emp/DesignationList';
-    var URL = '/Emp/DesignationList';
-    $.getJSON(URL, function (data) {
+    
+    $.getJSON(DesignationList, function (data) {
         var selectedItemID = document.getElementById("selectedDesigIDHidden").value;
         var items;
         $.each(data, function (i, state) {
@@ -19,9 +18,8 @@
 
     $('#CompanyID').change(function () {
         $('#DesigID').empty();
-        //var URL = '/WMS/Emp/DesignationList';
-        var URL = '/Emp/DesignationList';
-        $.getJSON(URL, function (data) {
+        
+        $.getJSON(DesignationList, function (data) {
             var selectedItemID = document.getElementById("selectedDesigIDHidden").value;
             var items;
             $.each(data, function (i, state) {

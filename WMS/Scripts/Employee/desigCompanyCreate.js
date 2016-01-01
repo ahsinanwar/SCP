@@ -3,7 +3,7 @@
     $('#DesigID').empty();
     //var URL = '/WMS/Emp/DesignationList';
     var URL = '/Emp/DesignationList';
-    $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+    $.getJSON(DesignationList, function (data) {
         var items;
         $.each(data, function (i, state) {
             items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
@@ -17,7 +17,7 @@
         $('#DesigID').empty();
         // var URL = '/WMS/Emp/DesignationList';
         var URL = '/Emp/DesignationList';
-        $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+        $.getJSON(DesignationList, function (data) {
             var items;
             $.each(data, function (i, state) {
                 items += "<option value='" + state.Value + "'>" + state.Text + "</option>";

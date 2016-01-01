@@ -2,9 +2,8 @@
 
     $('#TypeID').empty();
     var convalue = $('#CatID').val();
-    //  var URL = '/WMS/Emp/EmpTypeList';
-  var URL = '/Emp/EmpTypeList';
-    $.getJSON(URL + '/' + convalue, function (data) {
+   
+  $.getJSON(EmpTypeList, function (data) {
         var items;
         $.each(data, function (i, state) {
             items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
@@ -17,10 +16,9 @@
 
     $('#CatID').change(function () {
         $('#TypeID').empty();
-        // var URL = '/WMS/Emp/EmpTypeList';
-        var URL = '/Emp/EmpTypeList';
+       
         var convalue = $('#CatID').val();
-        $.getJSON(URL + '/' + convalue, function (data) {
+        $.getJSON(EmpTypeList, function (data) {
             var items;
             $.each(data, function (i, state) {
                 items += "<option value='" + state.Value + "'>" + state.Text + "</option>";

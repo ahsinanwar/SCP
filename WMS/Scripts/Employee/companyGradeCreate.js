@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
     $('#GradeID').empty();
-    //var URL = '/WMS/Emp/GradeList';
-    var URL = '/Emp/GradeList';
-    $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+   
+    $.getJSON(GradeList, function (data) {
         var items;
         $.each(data, function (i, state) {
                 items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
@@ -16,9 +15,8 @@
 
     $('#CompanyID').change(function () {
         $('#GradeID').empty();
-        //  var URL = '/WMS/Emp/GradeList';
-        var URL = '/Emp/GradeList';
-        $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+       
+        $.getJSON(GradeList, function (data) {
             var items;
             $.each(data, function (i, state) {
                     items += "<option value='" + state.Value + "'>" + state.Text + "</option>";

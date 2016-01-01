@@ -1,9 +1,7 @@
 ﻿$(document).ready(function () {
 
     $('#CrewID').empty();
-    //var URL = '/WMS/Emp/CrewList';
-    var URL = '/Emp/CrewList';
-    $.getJSON(URL, function (data) {
+    $.getJSON(CrewList, function (data) {
         var selectedItemID = document.getElementById("selectedCrewIdHidden").value;
         var items;
         $.each(data, function (i, state) {
@@ -19,9 +17,8 @@
 
     $('#CompanyID').change(function () {
         $('#CrewID').empty();
-        // var URL = '/WMS/Emp/CrewList';
-        var URL = '/Emp/CrewList';
-        $.getJSON(URL , function (data) {
+       
+        $.getJSON(CrewList, function (data) {
             var selectedItemID = document.getElementById("selectedCrewIdHidden").value;
             var items;
             $.each(data, function (i, state) {

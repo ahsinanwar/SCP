@@ -191,6 +191,7 @@
     <Content Include="Scripts\angular\UserController.js" />
     <Content Include="Scripts\angular\UserEditController.js" />
     <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\CentrailizedScriptValues.js" />
     <Content Include="Scripts\EditAttendance.js" />
     <Content Include="Scripts\Employee\catEmpTypeCompanyCreate.js" />
     <Content Include="Scripts\dx.chartjs.js" />

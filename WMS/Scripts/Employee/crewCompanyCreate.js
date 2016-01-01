@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
     $('#CrewID').empty();
-    //var URL = '/WMS/Emp/CrewList';
-   var URL = '/Emp/CrewList';
-    $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+    
+    $.getJSON(CrewList, function (data) {
         var items;
         $.each(data, function (i, state) {
             items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
@@ -15,9 +14,7 @@
 
     $('#CompanyID').change(function () {
         $('#CrewID').empty();
-        //var URL = '/WMS/Emp/CrewList';
-         var URL = '/Emp/CrewList';
-        $.getJSON(URL + '/' + $('#CompanyID').val(), function (data) {
+         $.getJSON(CrewList, function (data) {
             var items;
             $.each(data, function (i, state) {
                 items += "<option value='" + state.Value + "'>" + state.Text + "</option>";

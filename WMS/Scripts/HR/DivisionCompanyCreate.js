@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
 
     $('#DeptID').empty();
-    //var URL = '/WMS/Emp/DepartmentList';
-    var URL = '/Emp/DepartmentList';
-    $.getJSON(URL , function (data) {
+   
+    $.getJSON(DepartmentList, function (data) {
         var items;
         $.each(data, function (i, state) {
             items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
