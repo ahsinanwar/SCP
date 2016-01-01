@@ -82,6 +82,8 @@ namespace WMS.Controllers
                                  Session["LogedUserID"] = v.UserID.ToString();
                                  Session["LogedUserFullname"] = v.UserName;
                                  Session["LoggedUser"] = v;
+                                 if (v.MLeave == true)
+                                     Session["MLeave"] = "1";
                                  return RedirectToAction("index", "ESSLeave", new { area = "ESS" });
                               }
                               else
