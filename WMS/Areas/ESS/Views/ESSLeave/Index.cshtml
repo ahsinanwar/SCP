@@ -10,8 +10,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-condensed">
+        <tr class="table-header">
+
         <th>
             @Html.DisplayNameFor(model => model.LvDate)
         </th>
@@ -122,3 +124,4 @@
 }
 
 </table>
+</div>

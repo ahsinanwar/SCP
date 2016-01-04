@@ -30,63 +30,20 @@
                 @Html.ActionLink("Workforce Management System", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse pull-right">
- <ul class="nav navbar-nav">
-      <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon glyphicon-tasks"></i>  Leave Forward <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
- @if (Session["MLeave"].ToString() == "1")
-                  {
-
-              
-                        
-                         <li><a href="~/ESS/LeaveForward">Forward Leaves </a></li>
-
-                       
-                      
-
-                  }
- <li><a href="~/ESS/ESSLeave/Create">Create Leave </a></li>
-</ul>
-</li>
-</ul>
-               @* @if (Session["LogedUserID"] == "" || Session["LogedUserID"] == null)
-                {
-
-                }
-                else
-                {
                 <ul class="nav navbar-nav">
-                  @if(Session["MHR"].ToString() == "1")
-                   {
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-folder-close"></span><span>  Company</span> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon glyphicon-tasks"></i>  Leave Forward <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        <li><a href="~/Emp">Employees</a></li>
+                        @if (Session["MLeave"].ToString() == "1")
+                            {
+                                <li><a href="~/ESS/LeaveForward">Forward Leaves </a></li>
+                                <li><a href="~/ESS/ESSLeave/Create">Create Leave </a></li>
+                            }
+                     
                         </ul>
-                    </li>    
-                  }*@
-                  
-                     @*@if(Session["MUser"].ToString() == "1")
-                        {
-                         <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-th-large"></i>  Settings <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="~/LeaveSettings">Leaves</a></li>
-                      </ul>
-                    </li>
-                        }*@
-              @*  @if (Session["MEditAtt"].ToString() == "1")
-                  {
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon glyphicon-tasks"></i>  Process Attendance <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        
-                         <li><a href="~/AttProcessors">Process Attendance</a></li>
-                       
-                      </ul>
-                    </li>
-                  }*@
-              
+                     </li>
+                    </ul>
+         
                   <ul class="nav navbar-nav">
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>  <b class="caret"></b></a>
